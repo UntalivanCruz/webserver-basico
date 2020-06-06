@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
 
-app.get('/', function (req, res) {
+app.use(express.static(__dirname+ '/public'))
+
+/*app.get('/', function (req, res) {
     let datos={
         nombre:'Ivan',
         Edad:28,
@@ -9,6 +11,10 @@ app.get('/', function (req, res) {
         admin: req.url
     }
   res.json(datos)
+})*/
+
+app.get('/saludar', (req, res)=> {
+  res.send('hola')
 })
  
 app.listen(8080,()=>{
